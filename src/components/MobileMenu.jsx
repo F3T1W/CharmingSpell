@@ -30,7 +30,7 @@ export default function MobileMenu({
         </div>
         <div className="mt-6">
           <div className="divide-y">
-            <div className="space-y-2 py-6">
+            <div className="space-y-2 py-6 flex flex-col items-center">
               {navigation.map((item) => (
                 <a 
                   key={item.name} 
@@ -41,7 +41,7 @@ export default function MobileMenu({
                 </a>
               ))}
             </div>
-            <div className="py-6">
+            <div className="py-6 flex flex-col items-center">
               <a 
                 href="#" 
                 className={`block px-3 py-2.5 rounded-lg ${isDarkMode ? 'text-white hover:bg-gray-800' : 'text-gray-900 hover:bg-gray-50'}`}

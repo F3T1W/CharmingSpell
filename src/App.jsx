@@ -19,9 +19,7 @@ export default function App() {
   const toggleTheme = () => setIsDarkMode((prev) => !prev);
 
   return (
-    <div 
-      className={`overflow-y-hidden min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}
-    >
+    <div className={`overflow-y-hidden min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
       <Header 
         navigation={navigation} 
         mobileMenuOpen={mobileMenuOpen} 
@@ -29,7 +27,7 @@ export default function App() {
         isDarkMode={isDarkMode}
         toggleTheme={toggleTheme}
       />
-      <HomePage isDarkMode={isDarkMode}/>
+      <HomePage isDarkMode={isDarkMode} />
     </div>
   );
 }

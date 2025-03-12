@@ -1,4 +1,4 @@
-import styles from './HeroSection.module.css';
+import styles from "./HeroSection.module.css";
 
 export default function HeroSection({ isDarkMode }) {
   return (
@@ -11,17 +11,15 @@ export default function HeroSection({ isDarkMode }) {
       }}
     >
       <div>
-
         {/* Левая половина экрана */}
         <div
           className="absolute inset-y-0 left-0 w-full bg-gradient-to-r blur-2xl transform-gpu"
           aria-hidden="true"
         >
-          {/* Левый треугольник */}
           <div
-            className={`absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-75 ${styles['animate-triangle-left']}`}
+            className={`absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-75 ${styles["animate-triangle-left"]}`}
             style={{
-              clipPath: "polygon(0% 0%, 50% 50%, 0% 100%)", // Начальная форма
+              clipPath: "polygon(50% 50%, 50% 50%, 50% 50%)", // Начальная форма
             }}
           />
         </div>
@@ -31,11 +29,10 @@ export default function HeroSection({ isDarkMode }) {
           className="absolute inset-y-0 right-0 w-full bg-gradient-to-l blur-2xl transform-gpu"
           aria-hidden="true"
         >
-          {/* Правый треугольник */}
           <div
-            className={`absolute inset-0 bg-gradient-to-l from-[#6ee7b7] to-[#3b82f6] opacity-75 ${styles['animate-triangle-right']}`}
+            className={`absolute inset-0 bg-gradient-to-l from-[#6ee7b7] to-[#3b82f6] opacity-75 ${styles["animate-triangle-right"]}`}
             style={{
-              clipPath: "polygon(100% 0%, 50% 50%, 100% 100%)", // Начальная форма
+              clipPath: "polygon(50% 50%, 50% 50%, 50% 50%)", // Начальная форма
             }}
           />
         </div>
@@ -45,11 +42,10 @@ export default function HeroSection({ isDarkMode }) {
           className="absolute inset-x-0 top-0 h-full bg-gradient-to-b blur-2xl transform-gpu"
           aria-hidden="true"
         >
-          {/* Верхний треугольник */}
           <div
-            className={`absolute inset-0 bg-gradient-to-b from-[#590226] to-[#160d94] opacity-75 ${styles['animate-triangle-top']}`}
+            className={`absolute inset-0 bg-gradient-to-b from-[#590226] to-[#160d94] opacity-75 ${styles["animate-triangle-top"]}`}
             style={{
-              clipPath: "polygon(0% 0%, 50% 50%, 100% 0%)", // Форма верхнего треугольника
+              clipPath: "polygon(50% 50%, 50% 50%, 50% 50%)", // Форма верхнего треугольника
             }}
           />
         </div>
@@ -59,15 +55,13 @@ export default function HeroSection({ isDarkMode }) {
           className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t blur-2xl transform-gpu"
           aria-hidden="true"
         >
-          {/* Нижний треугольник */}
           <div
-            className={`absolute inset-0 bg-gradient-to-t from-[#bcfde3] to-[#0b182e] opacity-75 ${styles['animate-triangle-bottom']}`}
+            className={`absolute inset-0 bg-gradient-to-t from-[#bcfde3] to-[#0b182e] opacity-75 ${styles["animate-triangle-bottom"]}`}
             style={{
-              clipPath: "polygon(0% 100%, 50% 50%, 100% 100%)", // Форма нижнего треугольника
+              clipPath: "polygon(50% 50%, 50% 50%, 50% 50%)", // Форма нижнего треугольника
             }}
           />
         </div>
-
       </div>
 
       {/* Основной контент */}
@@ -82,7 +76,7 @@ export default function HeroSection({ isDarkMode }) {
           </h1>
           <p
             className={`mt-8 text-lg font-medium text-pretty ${
-              isDarkMode ? "text-gray-400" : "text-gray-500"
+              isDarkMode ? "text-white" : "text-gray-900"
             } sm:text-xl/8`}
           >
             Индивидуальные решения и разнообразие фетишей для вас

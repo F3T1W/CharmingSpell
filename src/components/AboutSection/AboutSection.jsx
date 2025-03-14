@@ -39,14 +39,13 @@ export default function AboutSection() {
 
   return (
     <div
-      className="relative h-full w-screen flex items-center justify-center"
+      className="relative h-full w-screen flex items-center justify-center overflow-hidden"
       style={{
         background: isDarkMode
           ? "linear-gradient(to right, #1e293b, #0f172a)"
           : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
       }}
     >
-      
       <div
         className="isolate px-6 py-12 sm:py-16 lg:px-8"
         style={{

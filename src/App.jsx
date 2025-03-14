@@ -30,15 +30,14 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      {" "}
       <Router>
-        <div className="overflow-x-hidden min-h-screen">
+        <div className="flex flex-col min-h-screen overflow-x-hidden">
           <Header
             navigation={navigation}
             mobileMenuOpen={mobileMenuOpen}
             setMobileMenuOpen={setMobileMenuOpen}
           />
-          <main className="flex-grow">
+          <main className="flex-grow overflow-y-auto">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />

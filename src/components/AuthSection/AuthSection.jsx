@@ -1,4 +1,9 @@
-export default function AuthSection({ isDarkMode }) {
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
+
+export default function AuthSection() {
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <div
       className="relative w-screen h-screen overflow-hidden flex items-center justify-center"
@@ -8,11 +13,14 @@ export default function AuthSection({ isDarkMode }) {
           : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
       }}
     >
-      {/* Контейнер с формой */}
       <div
         className={`sm:mx-auto sm:w-full sm:max-w-sm ${
           isDarkMode ? "bg-gray-800" : "bg-gray-200"
         } p-8 rounded-lg shadow-md`}
+        style={{
+          transform: "scale(1.2)",
+          transformOrigin: "center",
+        }}
       >
         <h2
           className={`mt-6 text-center text-2xl font-bold tracking-tight ${
@@ -23,7 +31,6 @@ export default function AuthSection({ isDarkMode }) {
         </h2>
 
         <form action="#" method="POST" className="mt-8 space-y-6">
-          {/* Поле Email */}
           <div>
             <label
               htmlFor="email"
@@ -49,7 +56,6 @@ export default function AuthSection({ isDarkMode }) {
             </div>
           </div>
 
-          {/* Поле Password */}
           <div>
             <div className="flex items-center justify-between">
               <label
@@ -89,19 +95,21 @@ export default function AuthSection({ isDarkMode }) {
             </div>
           </div>
 
-          {/* Кнопка Submit */}
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="flex w-full justify-center rounded-md bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Войти
             </button>
           </div>
         </form>
 
-        {/* Ссылка на регистрацию */}
-        <p className="mt-6 text-center text-sm text-gray-500">
+        <p
+          className={`mt-6 text-center text-sm ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
           Шо это такое?{" "}
           <a
             href="/register"

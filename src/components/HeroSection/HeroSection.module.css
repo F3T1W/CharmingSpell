@@ -1,172 +1,40 @@
-@keyframes rotate-clockwise {
-  0% {
-    transform: rotate(0deg); /* Начальное положение */
-  }
-  100% {
-    transform: rotate(360deg); /* Полный оборот */
-  }
-}
-
 @keyframes triangle-left {
   0% {
-    clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
-  }
-  12.5% {
-    clip-path: polygon(25% 25%, 50% 50%, 25% 75%);
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   }
   25% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
-  }
-  37.5% {
-    clip-path: polygon(75% 75%, 50% 50%, 75% 25%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%);
   }
   50% {
-    clip-path: polygon(100% 100%, 50% 50%, 100% 0%);
-  }
-  62.5% {
-    clip-path: polygon(75% 75%, 50% 50%, 75% 25%);
+    clip-path: polygon(100% 0%, 100% 50%, 100% 100%);
   }
   75% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
-  }
-  87.5% {
-    clip-path: polygon(25% 25%, 50% 50%, 25% 75%);
   }
   100% {
-    clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
   }
 }
 
-/* Анимация для правого треугольника */
 @keyframes triangle-right {
   0% {
-    clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
-  }
-  12.5% {
-    clip-path: polygon(75% 25%, 50% 50%, 75% 75%);
+    clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
   }
   25% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
-  }
-  37.5% {
-    clip-path: polygon(25% 75%, 50% 50%, 25% 25%);
+    clip-path: polygon(50% 0%, 0% 50%, 50% 100%);
   }
   50% {
-    clip-path: polygon(0% 100%, 50% 50%, 0% 0%);
-  }
-  62.5% {
-    clip-path: polygon(25% 75%, 50% 50%, 25% 25%);
+    clip-path: polygon(0% 0%, 0% 50%, 0% 100%);
   }
   75% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
-  }
-  87.5% {
-    clip-path: polygon(75% 25%, 50% 50%, 75% 75%);
+    clip-path: polygon();
   }
   100% {
-    clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
   }
 }
 
-/* Анимация для верхнего треугольника */
-@keyframes triangle-top {
-  0% {
-    clip-path: polygon(
-      0% 0%,
-      50% 50%,
-      100% 0%
-    ); /* Начальная форма (верхний треугольник) */
-  }
-  12.5% {
-    clip-path: polygon(25% 25%, 50% 50%, 75% 25%); /* Уменьшение размера */
-  }
-  25% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%); /* Схлопывание в центр */
-  }
-  37.5% {
-    clip-path: polygon(75% 75%, 50% 50%, 25% 75%); /* Начало раскрытия вниз */
-  }
-  50% {
-    clip-path: polygon(
-      100% 100%,
-      50% 50%,
-      0% 100%
-    ); /* Полностью развернутый вниз */
-  }
-  62.5% {
-    clip-path: polygon(75% 75%, 50% 50%, 25% 75%); /* Уменьшение размера */
-  }
-  75% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%); /* Схлопывание в центр */
-  }
-  87.5% {
-    clip-path: polygon(25% 25%, 50% 50%, 75% 25%); /* Начало раскрытия вверх */
-  }
-  100% {
-    clip-path: polygon(
-      0% 0%,
-      50% 50%,
-      100% 0%
-    ); /* Возвращение к начальной форме */
-  }
-}
-
-/* Анимация для нижнего треугольника */
-@keyframes triangle-bottom {
-  0% {
-    clip-path: polygon(
-      0% 100%,
-      50% 50%,
-      100% 100%
-    ); /* Начальная форма (нижний треугольник) */
-  }
-  12.5% {
-    clip-path: polygon(25% 75%, 50% 50%, 75% 75%); /* Уменьшение размера */
-  }
-  25% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%); /* Схлопывание в центр */
-  }
-  37.5% {
-    clip-path: polygon(75% 25%, 50% 50%, 25% 25%); /* Начало раскрытия вверх */
-  }
-  50% {
-    clip-path: polygon(
-      100% 0%,
-      50% 50%,
-      0% 0%
-    ); /* Полностью развернутый вверх */
-  }
-  62.5% {
-    clip-path: polygon(75% 25%, 50% 50%, 25% 25%); /* Уменьшение размера */
-  }
-  75% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%); /* Схлопывание в центр */
-  }
-  87.5% {
-    clip-path: polygon(25% 75%, 50% 50%, 75% 75%); /* Начало раскрытия вниз */
-  }
-  100% {
-    clip-path: polygon(
-      0% 100%,
-      50% 50%,
-      100% 100%
-    ); /* Возвращение к начальной форме */
-  }
-}
-
-/* Применение анимаций */
 .animate-triangle-left {
-  animation: triangle-left 10s infinite linear;
+  animation: triangle-left 4s infinite linear;
 }
 
 .animate-triangle-right {
-  animation: triangle-right 10s infinite linear;
-}
-
-.animate-triangle-top {
-  animation: triangle-top 10s infinite linear;
-}
-
-.animate-triangle-bottom {
-  animation: triangle-bottom 10s infinite linear;
+  animation: triangle-right 4s infinite linear;
 }

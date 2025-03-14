@@ -1,13 +1,16 @@
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import MobileMenu from "./MobileMenu";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 export default function Header({
   navigation,
   mobileMenuOpen,
   setMobileMenuOpen,
-  isDarkMode,
-  toggleTheme,
 }) {
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
@@ -15,10 +18,11 @@ export default function Header({
         className="flex items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <img alt="" src="/mark.svg" className="h-8 w-auto" />
-          </a>
+          </Link>
         </div>
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -30,35 +34,37 @@ export default function Header({
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
+
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
-              className={`text-sm/6 font-semibold ${
+              to={item.href}
+              className={`text-sm/6 font-semibold hover:underline ${
                 isDarkMode ? "text-white" : "text-gray-900"
               }`}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="/auth"
+          <Link
+            to="/auth"
             className={`text-sm/6 font-semibold ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}
           >
             Войти
-          </a>
+          </Link>
           <button
             onClick={toggleTheme}
             className={`ml-4 text-sm/6 font-semibold ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}
           >
-            ☼
+            {isDarkMode ? "☀️" : "🌙"}
           </button>
         </div>
       </nav>

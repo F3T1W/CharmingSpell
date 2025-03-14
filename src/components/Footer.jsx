@@ -7,14 +7,13 @@ export default function Footer() {
 
   return (
     <footer
-      className="py-4"
       style={{
         background: isDarkMode
           ? "linear-gradient(to right, #1e293b, #0f172a)"
           : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
       }}
     >
-      <div className="w-full max-w-screen-xl mx-auto p-4 md:pt-8">
+      <div className="w-full max-w-screen-xl mx-auto p-4 md:pt-4">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Link
             to="https://flowbite.com/"

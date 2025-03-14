@@ -12,7 +12,14 @@ export default function Header({
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header
+      className="fixed inset-x-0 top-0 z-50"
+      style={{
+        background: isDarkMode
+          ? "linear-gradient(to right, #1e293b, #0f172a)"
+          : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
+      }}
+    >
       <nav
         aria-label="Global"
         className="flex items-center justify-between p-6 lg:px-8"

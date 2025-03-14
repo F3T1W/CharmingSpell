@@ -6,7 +6,7 @@ export default function HeroSection() {
 
   return (
     <div
-      className="relative isolate px-6 pt-14 lg:px-8"
+      className="overflow-hidden relative isolate px-6 pt-14 lg:px-8"
       style={{
         background: isDarkMode
           ? "linear-gradient(to right, #1e293b, #0f172a)"

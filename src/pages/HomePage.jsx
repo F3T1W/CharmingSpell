@@ -1,5 +1,5 @@
 import HeroSection from "../components/HeroSection/HeroSection";
 
-export default function HomePage({ isDarkMode }) {
-  return <HeroSection isDarkMode={isDarkMode} />;
+export default function HomePage() {
+  return <HeroSection />;
 }

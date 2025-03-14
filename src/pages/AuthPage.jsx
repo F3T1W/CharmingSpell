@@ -1,5 +1,5 @@
 import AuthSection from "../components/AuthSection/AuthSection";
 
-export default function AuthPage({ isDarkMode }) {
-  return <AuthSection isDarkMode={isDarkMode} />;
+export default function AuthPage() {
+  return <AuthSection />;
 }

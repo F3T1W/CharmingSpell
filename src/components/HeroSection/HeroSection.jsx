@@ -1,72 +1,31 @@
-import styles from "./HeroSection.module.css";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
-export default function HeroSection({ isDarkMode }) {
+export default function HeroSection() {
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <div
-      className="relative w-screen h-screen overflow-hidden"
+      className="relative isolate px-6 pt-14 lg:px-8"
       style={{
         background: isDarkMode
           ? "linear-gradient(to right, #1e293b, #0f172a)"
           : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
       }}
     >
-      <div>
-        {/* Левая половина экрана */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 pointer-events-none"
+      >
         <div
-          className="absolute inset-y-0 left-0 w-full bg-gradient-to-r blur-2xl transform-gpu"
-          aria-hidden="true"
-        >
-          <div
-            className={`absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-75 ${styles["animate-triangle-left"]}`}
-            style={{
-              clipPath: "polygon(50% 50%, 50% 50%, 50% 50%)", // Начальная форма
-            }}
-          />
-        </div>
-
-        {/* Правая половина экрана */}
-        <div
-          className="absolute inset-y-0 right-0 w-full bg-gradient-to-l blur-2xl transform-gpu"
-          aria-hidden="true"
-        >
-          <div
-            className={`absolute inset-0 bg-gradient-to-l from-[#6ee7b7] to-[#3b82f6] opacity-75 ${styles["animate-triangle-right"]}`}
-            style={{
-              clipPath: "polygon(50% 50%, 50% 50%, 50% 50%)", // Начальная форма
-            }}
-          />
-        </div>
-
-        {/* Верхняя половина экрана */}
-        <div
-          className="absolute inset-x-0 top-0 h-full bg-gradient-to-b blur-2xl transform-gpu"
-          aria-hidden="true"
-        >
-          <div
-            className={`absolute inset-0 bg-gradient-to-b from-[#590226] to-[#160d94] opacity-75 ${styles["animate-triangle-top"]}`}
-            style={{
-              clipPath: "polygon(50% 50%, 50% 50%, 50% 50%)", // Форма верхнего треугольника
-            }}
-          />
-        </div>
-
-        {/* Нижняя половина экрана */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t blur-2xl transform-gpu"
-          aria-hidden="true"
-        >
-          <div
-            className={`absolute inset-0 bg-gradient-to-t from-[#bcfde3] to-[#0b182e] opacity-75 ${styles["animate-triangle-bottom"]}`}
-            style={{
-              clipPath: "polygon(50% 50%, 50% 50%, 50% 50%)", // Форма нижнего треугольника
-            }}
-          />
-        </div>
+          style={{
+            clipPath: "polygon(-25% 50%, 50% 75%, 100% 100%, 100% 60%)",
+          }}
+          className="relative aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr opacity-75 from-[#9089fc] to-[#ff80b5] sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+        />
       </div>
-
-      {/* Основной контент */}
-      <div className="absolute inset-0 flex items-center justify-center text-center">
-        <div>
+      <div className="mx-auto max-w-2xl py-60 sm:py-48 lg:py-64">
+        <div className="text-center">
           <h1
             className={`text-5xl font-semibold tracking-tight text-balance ${
               isDarkMode ? "text-white" : "text-gray-900"
@@ -76,7 +35,7 @@ export default function HeroSection({ isDarkMode }) {
           </h1>
           <p
             className={`mt-8 text-lg font-medium text-pretty ${
-              isDarkMode ? "text-white" : "text-gray-900"
+              isDarkMode ? "text-gray-400" : "text-gray-500"
             } sm:text-xl/8`}
           >
             Индивидуальные решения и разнообразие фетишей для вас
@@ -98,6 +57,17 @@ export default function HeroSection({ isDarkMode }) {
             </a>
           </div>
         </div>
+      </div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] pointer-events-none"
+      >
+        <div
+          style={{
+            clipPath: "polygon(100% 60%, 100% 100%, 15% 60%, 0% 0%)",
+          }}
+          className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr opacity-75 from-[#ff80b5] to-[#9089fc] sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+        />
       </div>
     </div>
   );

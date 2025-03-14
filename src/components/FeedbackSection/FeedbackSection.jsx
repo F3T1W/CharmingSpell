@@ -1,12 +1,19 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 import { Field, Label, Switch } from "@headlessui/react";
 
-export default function FeedbackSection({ isDarkMode }) {
+export default function FeedbackSection() {
   const [agreed, setAgreed] = useState(false);
+  const { isDarkMode } = useContext(ThemeContext);
 
   return (
-    <div className="relative w-screen flex items-center justify-center">
-      {/* Контейнер с формой */}
+    <div className="relative h-screen w-screen flex items-center justify-center"
+    style={{
+      background: isDarkMode
+        ? "linear-gradient(to right, #1e293b, #0f172a)"
+        : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
+    }}>
       <div className={`isolate px-6 pt-24 sm:py-28 lg:px-8`}>
         <div
           aria-hidden="true"
@@ -20,13 +27,6 @@ export default function FeedbackSection({ isDarkMode }) {
           >
             Обратная связь
           </h2>
-          <p
-            className={`mt-6 text-lg/8 ${
-              isDarkMode ? "text-white" : "text-black"
-            }`}
-          >
-            Распиши, чего думается :3
-          </p>
         </div>
         <form action="#" method="POST" className="mx-auto max-w-xl sm:mt-8">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">

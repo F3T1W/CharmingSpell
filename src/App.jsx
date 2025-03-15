@@ -8,7 +8,7 @@ import AboutPage from "./pages/AboutPage";
 import FeaturesPage from "./pages/FeaturesPage";
 import ShopPage from "./pages/ShopPage";
 import FeedbackPage from "./pages/FeedbackPage";
-import PricesPage from "./pages/PricesPage";
+import CustomPage from "./pages/CustomPage";
 import FAQPage from "./pages/FAQPage";
 import AuthPage from "./pages/AuthPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -20,8 +20,7 @@ const navigation = [
   { name: "О нас", href: "/about" },
   { name: "Преимущества", href: "/features" },
   { name: "Магазин", href: "/shop" },
-  { name: "Обратная связь", href: "/feedback" },
-  { name: "Цены", href: "/prices" },
+  { name: "Кастом", href: "/custom" },
   { name: "F.A.Q.", href: "/faq" },
 ];
 
@@ -44,7 +43,7 @@ export default function App() {
               <Route path="/features" element={<FeaturesPage />} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/feedback" element={<FeedbackPage />} />
-              <Route path="/prices" element={<PricesPage />} />
+              <Route path="/custom" element={<CustomPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/register" element={<RegisterPage />} />

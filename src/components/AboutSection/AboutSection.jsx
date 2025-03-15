@@ -39,7 +39,7 @@ export default function AboutSection() {
 
   return (
     <div
-      className="relative h-full w-screen flex items-center justify-center overflow-hidden"
+      className="relative h-full flex items-center justify-center overflow-hidden"
       style={{
         background: isDarkMode
           ? "linear-gradient(to right, #1e293b, #0f172a)"

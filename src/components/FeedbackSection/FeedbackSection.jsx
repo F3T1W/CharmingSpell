@@ -8,12 +8,14 @@ export default function FeedbackSection() {
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
-    <div className="relative h-screen w-screen flex items-center justify-center"
-    style={{
-      background: isDarkMode
-        ? "linear-gradient(to right, #1e293b, #0f172a)"
-        : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
-    }}>
+    <div
+      className="relative h-screen flex items-center justify-center overflow-x-hidden"
+      style={{
+        background: isDarkMode
+          ? "linear-gradient(to right, #1e293b, #0f172a)"
+          : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
+      }}
+    >
       <div className={`isolate px-6 pt-24 sm:py-28 lg:px-8`}>
         <div
           aria-hidden="true"

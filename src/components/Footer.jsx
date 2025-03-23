@@ -38,17 +38,17 @@ export default function Footer() {
             }`}
           >
             <li>
-              <Link to="/" className="hover:underline me-4 md:me-6">
+              <Link to="/privacyPolicy" className="hover:underline me-4 md:me-6">
                 Политика конфиденциальности
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:underline me-4 md:me-6">
+              <Link to="/userAgreement" className="hover:underline me-4 md:me-6">
                 Пользовательское соглашение
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:underline me-4 md:me-6">
+              <Link to="/publicOffer" className="hover:underline me-4 md:me-6">
                 Публичная оферта
               </Link>
             </li>

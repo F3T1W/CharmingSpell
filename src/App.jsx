@@ -13,8 +13,13 @@ import FAQPage from "./pages/FAQPage";
 import AuthPage from "./pages/AuthPage";
 import RegisterPage from "./pages/RegisterPage";
 import Footer from "./components/Footer";
-import { ThemeProvider } from "./components/ThemeContext"; // Импортируем провайдер
+import Alert from "./components/Alert";
+import AgeAlert from "./components/AgeAlert/AgeAlert";
+import { ThemeProvider } from "./components/ThemeContext";
 import "./App.css";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import UserAgreementPage from "./pages/UserAgreementPage";
+import PublicOfferPage from "./pages/PublicOfferPage";
 
 const navigation = [
   { name: "О нас", href: "/about" },
@@ -47,11 +52,16 @@ export default function App() {
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/privacyPolicy" element={<PrivacyPolicyPage />} />
+              <Route path="/userAgreement" element={<UserAgreementPage />} />
+              <Route path="/publicOffer" element={<PublicOfferPage />} />
             </Routes>
           </main>
           <Footer navigation={navigation} />
         </div>
       </Router>
+      <Alert />
+      <AgeAlert />
     </ThemeProvider>
   );
 }

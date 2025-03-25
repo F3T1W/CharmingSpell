@@ -1,8 +1,26 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../ThemeContext";
+import apiClient from "../ApiClient";
 
 export default function HeroSection() {
   const { isDarkMode } = useContext(ThemeContext);
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await apiClient.get('/Test');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div
@@ -24,6 +42,7 @@ export default function HeroSection() {
           className="relative aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr opacity-75 from-[#9089fc] to-[#ff80b5] sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
         />
       </div>
+
       <div className="mx-auto max-w-2xl py-60 sm:py-48 lg:py-64">
         <div className="text-center">
           <h1
@@ -40,6 +59,7 @@ export default function HeroSection() {
           >
             Индивидуальные решения и разнообразие фетишей для вас
           </p>
+
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
               href="#"
@@ -47,17 +67,19 @@ export default function HeroSection() {
             >
               Дрочи мой хуй себе в рот!
             </a>
+
             <a
               href="#"
               className={`text-sm/6 font-semibold ${
                 isDarkMode ? "text-white" : "text-gray-900"
               }`}
             >
-              Подробнее
+              {isLoading ? "Loading..." : data?.message || "No data"}
             </a>
           </div>
         </div>
       </div>
+
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] pointer-events-none"

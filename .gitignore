@@ -1,0 +1,6 @@
+/charmingspell-client/.vscode
+/charmingspell-client/node_modules
+/charmingspell-server/.vs
+/charmingspell-server/bin
+/charmingspell-server/obj
+charmingspell-server/charmingspell-server.csproj.user

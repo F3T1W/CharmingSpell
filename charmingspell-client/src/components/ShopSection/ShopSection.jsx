@@ -8,7 +8,7 @@ const products = [
     href: "#",
     price: "$48",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg",
+      "/1.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
@@ -18,7 +18,7 @@ const products = [
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg",
+      "/2.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
@@ -28,7 +28,7 @@ const products = [
     href: "#",
     price: "$89",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg",
+      "/3.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
   },
@@ -38,7 +38,7 @@ const products = [
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg",
+      "/4.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -48,7 +48,7 @@ const products = [
     href: "#",
     price: "$48",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg",
+      "/5.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
@@ -58,7 +58,7 @@ const products = [
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg",
+      "/6.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
@@ -68,7 +68,7 @@ const products = [
     href: "#",
     price: "$89",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg",
+      "/7.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
   },
@@ -78,7 +78,7 @@ const products = [
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg",
+      "/8.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -88,7 +88,7 @@ const products = [
     href: "#",
     price: "$48",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg",
+      "/9.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
@@ -98,7 +98,7 @@ const products = [
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg",
+      "/10.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
@@ -108,7 +108,7 @@ const products = [
     href: "#",
     price: "$89",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg",
+      "/11.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
   },
@@ -118,7 +118,7 @@ const products = [
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg",
+      "/12.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },

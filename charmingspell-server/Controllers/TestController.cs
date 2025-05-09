@@ -1,16 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using sib_api_v3_sdk.Api;
-using sib_api_v3_sdk.Client;
-using sib_api_v3_sdk.Model;
+﻿using System.Net;
+using System.Net.Mail;
+using Microsoft.AspNetCore.Mvc;
 
 namespace charmingspell_server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TestController(IConfiguration configuration) : ControllerBase
+    public class TestController : ControllerBase
     {
-        private readonly IConfiguration _configuration = configuration;
-
+        private const string SmtpHost = "smtp.gmail.com";
+        private const int SmtpPort = 587;
+        
+        private readonly string? _smtpUsername = Environment.GetEnvironmentVariable("SMTP_USERNAME");
+        private readonly string? _smtpPassword = Environment.GetEnvironmentVariable("SMTP_PASSWORD");
+        
         [HttpGet]
         public IActionResult Get()
         {
@@ -18,32 +21,36 @@ namespace charmingspell_server.Controllers
         }
         
         [HttpPost("send-email")]
-        public IActionResult SendEmail([FromBody] EmailRequest request)
+        public void SendEmail([FromBody] EmailRequest request)
         {
             try
             {
-                Configuration.Default.ApiKey["api-key"] = _configuration["BrevoAPI:APIKey"];
+                var mail = new MailMessage();
+                if (_smtpUsername == null) return;
+                mail.From = new MailAddress(_smtpUsername);
+                mail.To.Add(_smtpUsername);
+                mail.Subject = "Feedback";
+                mail.Body = $"<h1>Hello, Feedback from {request.FirstName} {request.LastName} ({request.Email})" +
+                            $"!</h1><p>{request.Message}</p>";
+                mail.IsBodyHtml = true;
 
-                var apiInstance = new TransactionalEmailsApi();
+                var smtpClient = new SmtpClient(SmtpHost)
+                {
+                    Port = SmtpPort,
+                    Credentials = new NetworkCredential(_smtpUsername, _smtpPassword),
+                    EnableSsl = true
+                };
 
-                var sendSmtpEmail = new SendSmtpEmail(
-                    sender: new SendSmtpEmailSender(name: "User", email: "particular0010abyss@gmail.com"),
-                    to: [new SendSmtpEmailTo(email: "particular0010abyss@gmail.com", "Admin")],
-                    subject: "Feedback",
-                    htmlContent: $"<h1>Hello, Feedback from {request.FirstName} {request.LastName} {request.Email}" +
-                                 $"!</h1><p>{request.Message}</p>"
-                );
-
-                var result = apiInstance.SendTransacEmail(sendSmtpEmail);
-
-                return Ok(new { message = "Email sent successfully!", details = result });
+                smtpClient.Send(mail);
+                    
+                Console.WriteLine("Письмо успешно отправлено!");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { error = "Failed to send email.", details = ex.Message });
+                throw new Exception();
             }
         }
-        
+
         public class EmailRequest(string firstName, string lastName, string email, string message)
         {
             public required string FirstName { get; init; } = firstName;

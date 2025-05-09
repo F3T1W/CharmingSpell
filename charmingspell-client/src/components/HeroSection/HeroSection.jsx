@@ -10,7 +10,7 @@ export default function HeroSection() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiClient.get('/Test');
+        const response = await apiClient.get('/api/test'); // Correct endpoint
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -33,13 +33,15 @@ export default function HeroSection() {
     >
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 pointer-events-none"
+        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80
+         pointer-events-none"
       >
         <div
           style={{
             clipPath: "polygon(-25% 50%, 50% 75%, 100% 100%, 100% 60%)",
           }}
-          className="relative aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr opacity-75 from-[#9089fc] to-[#ff80b5] sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          className="relative aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr opacity-75 from-[#9089fc]
+           to-[#ff80b5] sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
         />
       </div>
 
@@ -63,7 +65,9 @@ export default function HeroSection() {
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
               href="#"
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs
+               hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2
+                focus-visible:outline-indigo-600"
             >
               Дрочи мой хуй себе в рот!
             </a>
@@ -82,13 +86,15 @@ export default function HeroSection() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] pointer-events-none"
+        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl
+         sm:top-[calc(100%-30rem)] pointer-events-none"
       >
         <div
           style={{
             clipPath: "polygon(100% 60%, 100% 100%, 15% 60%, 0% 0%)",
           }}
-          className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr opacity-75 from-[#ff80b5] to-[#9089fc] sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr
+           opacity-75 from-[#ff80b5] to-[#9089fc] sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
         />
       </div>
     </div>

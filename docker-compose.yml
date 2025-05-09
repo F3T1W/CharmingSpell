@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: keycloak_postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak_user
+      POSTGRES_PASSWORD: keycloak_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - keycloak_network
+
+  keycloak:
+  image: quay.io/keycloak/keycloak:latest
+  container_name: keycloak_server
+  environment:
+    KC_DB: postgres
+    KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+    KC_DB_USERNAME: keycloak_user
+    KC_DB_PASSWORD: keycloak_password
+    KEYCLOAK_ADMIN: admin
+    KEYCLOAK_ADMIN_PASSWORD: admin
+    KC_SMTP_SERVER: postfix
+    KC_SMTP_PORT: 25
+    KC_SMTP_FROM: particular0010abyss@gmail.com
+    KC_SMTP_USER: particular0010abyss@gmail.com
+    KC_SMTP_PASSWORD: F3T1W&imkatyano_F0R3V3R
+  command: start-dev
+  depends_on:
+    - postgres
+  ports:
+    - "8080:8080"
+  networks:
+    - keycloak_network
+
+  postfix:
+  image: mlan/postfix:latest
+  container_name: postfix_server
+  environment:
+    MAIL_DOMAIN: gmail.com
+    RELAY_HOST: smtp.gmail.com
+    RELAY_PORT: 587
+    RELAY_USER: particular0010abyss@gmail.com
+    RELAY_PASSWORD: hgqo erqw fnat ypcx
+    OVERRIDE_HOSTNAME: smtp.gmail.com
+  ports:
+    - "25:25"
+  networks:
+    - keycloak_network
+
+volumes:
+  postgres_data:
+
+networks:
+  keycloak_network:

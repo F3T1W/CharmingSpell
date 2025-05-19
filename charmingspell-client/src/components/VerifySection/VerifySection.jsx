@@ -1,46 +1,92 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useContext, useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { ThemeContext } from "../ThemeContext";
+import apiClient from "../ApiClient";
 
-const VerifySection = () => {
-    const [message, setMessage] = useState('');
+export default function VerifySection() {
+    const { isDarkMode } = useContext(ThemeContext);
+    const { token } = useParams();
     const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
+    const [message, setMessage] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const verifyToken = async () => {
+            setIsLoading(true);
             try {
-                const token = searchParams.get('token');
-
                 if (!token) {
-                    setMessage('Токен не найден.');
+                    setMessage("Токен не найден.");
                     return;
                 }
 
-                const response = await fetch(`/api/test/verify?token=${token}`, {
-                    method: 'GET',
-                });
+                const response = await apiClient.get(`/api/test/verify/${token}`);
 
-                if (!response.ok) {
-                    throw new Error('Неверный или истекший токен.');
+                if (response.status === 200) {
+                    setMessage(response.data.message || "Аккаунт успешно подтвержден!");
+                    setTimeout(() => navigate("/"), 3000);
+                } else {
+                    setMessage("Ошибка при верификации.");
                 }
-
-                const data = await response.json();
-                setMessage(data.message || 'Аккаунт успешно подтвержден!');
-                setTimeout(() => navigate('/'), 3000);
             } catch (error) {
-                setMessage(error.message || 'Произошла ошибка при верификации.');
+                console.error("Ошибка верификации:", error);
+                setMessage(
+                    error.response?.data || "Произошла ошибка при верификации."
+                );
+                setTimeout(() => navigate("/"), 3000);
+            } finally {
+                setIsLoading(false);
             }
         };
 
         verifyToken();
-    }, [searchParams, navigate]);
+    }, [token, navigate]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <h1 className="text-2xl font-bold mb-4">Подтверждение аккаунта</h1>
-            <p className="text-gray-700">{message}</p>
+        <div
+            className="relative h-screen overflow-hidden flex items-center justify-center"
+            style={{
+                background: isDarkMode
+                    ? "linear-gradient(to right, #1e293b, #0f172a)"
+                    : "linear-gradient(to right, #e2e8f0, #cbd5e1)",
+            }}
+        >
+            <div
+                className={`sm:mx-auto sm:w-full sm:max-w-sm ${
+                    isDarkMode ? "bg-gray-800" : "bg-gray-200"
+                } p-8 rounded-lg shadow-md`}
+                style={{
+                    transform: "scale(1.2)",
+                    transformOrigin: "center",
+                }}
+            >
+                <h2
+                    className={`mt-6 text-center text-2xl font-bold tracking-tight ${
+                        isDarkMode ? "text-white" : "text-black"
+                    }`}
+                >
+                    Подтверждение аккаунта
+                </h2>
+
+                <div className="mt-8 space-y-6">
+                    {isLoading ? (
+                        <p
+                            className={`text-center text-sm ${
+                                isDarkMode ? "text-white" : "text-black"
+                            }`}
+                        >
+                            Загрузка...
+                        </p>
+                    ) : (
+                        <p
+                            className={`text-center text-sm ${
+                                isDarkMode ? "text-white" : "text-black"
+                            }`}
+                        >
+                            {message}
+                        </p>
+                    )}
+                </div>
+            </div>
         </div>
     );
-};
-
-export default VerifySection;
+}

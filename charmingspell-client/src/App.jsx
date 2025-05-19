@@ -20,6 +20,7 @@ import "./App.css";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import UserAgreementPage from "./pages/UserAgreementPage";
 import PublicOfferPage from "./pages/PublicOfferPage";
+import VerifySection from "./components/VerifySection/VerifySection.jsx";
 
 const navigation = [
   { name: "О нас", href: "/about" },
@@ -55,6 +56,7 @@ export default function App() {
               <Route path="/privacyPolicy" element={<PrivacyPolicyPage />} />
               <Route path="/userAgreement" element={<UserAgreementPage />} />
               <Route path="/publicOffer" element={<PublicOfferPage />} />
+              <Route path="/verify/:token" element={<VerifySection />} />
             </Routes>
           </main>
           <Footer navigation={navigation} />

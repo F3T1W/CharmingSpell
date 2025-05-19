@@ -25,12 +25,12 @@ export default function RegisterSection() {
       const response = await apiClient.post("/api/test/register", {
         email: formData.email,
         password: formData.password,
-        confirmPassword: formData.confirmPassword // Исправлено: confirmPassword
+        confirmPassword: formData.confirmPassword
       });
 
       if (response.status === 200) {
         alert("Регистрация успешна!");
-        setFormData({ email: "", password: "", confirmPassword: "" }); // Очистка формы
+        setFormData({ email: "", password: "", confirmPassword: "" });
       } else {
         alert("Ошибка при регистрации.");
       }

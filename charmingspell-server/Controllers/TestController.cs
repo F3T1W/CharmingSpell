@@ -24,16 +24,21 @@ namespace charmingspell_server.Controllers
             return Ok(new { Message = "Hello from ASP.NET!" });
         }
 
-        [HttpGet("verify")]
+        [HttpGet("verify/{token}")]
         public IActionResult VerifyAccount(string token)
         {
+            Console.WriteLine($"Received token: {token}");
+            if (string.IsNullOrEmpty(token))
+                return BadRequest(new { message = "Токен не передан." });
+    
             var user = context.Users.FirstOrDefault(u => u.VerificationToken == token);
             if (user == null)
-                return BadRequest("Неверный токен.");
+                return BadRequest(new { message = "Неверный токен." });
+    
             user.IsVerified = true;
             user.VerificationToken = null;
             context.SaveChanges();
-            return Ok("Аккаунт успешно подтвержден!");
+            return Ok(new { message = "Аккаунт успешно подтвержден!" });
         }
 
         [HttpPost("send-email")]

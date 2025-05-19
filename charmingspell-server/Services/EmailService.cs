@@ -21,7 +21,7 @@ public class EmailService(string smtpHost, int smtpPort, string? smtpUsername, s
             IsBodyHtml = false
         };
 
-        mail.To.Add(to);
+        if (to != null) mail.To.Add(to);
 
         try
         {

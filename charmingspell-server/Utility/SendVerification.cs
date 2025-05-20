@@ -4,7 +4,7 @@ namespace charmingspell_server.Utility;
 
 public static class SendVerification
 {
-    public static void SendVerificationEmail(EmailService emailService, string email, string verificationToken)
+    public static void SendVerificationEmail(EmailService emailService, string? email, string verificationToken)
     {
         var verificationLink = $"http://localhost:5173/verify/{verificationToken}";
         const string subject = "Подтверждение регистрации";

@@ -14,6 +14,10 @@ public class User
     public string? PasswordHash { get; init; }
     
     public string? VerificationToken { get; set; }
-
+    
     public bool IsVerified { get; set; }
+    
+    public string Role { get; set; } = "User";
+    
+    
 }

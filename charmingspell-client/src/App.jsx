@@ -21,27 +21,18 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import UserAgreementPage from "./pages/UserAgreementPage";
 import PublicOfferPage from "./pages/PublicOfferPage";
 import VerifySection from "./components/VerifySection/VerifySection.jsx";
-import {AuthProvider} from "./components/AuthContext.jsx";
+import { AuthProvider } from "./components/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
-
-const navigation = [
-  { name: "О нас", href: "/about" },
-  { name: "Преимущества", href: "/features" },
-  { name: "Магазин", href: "/shop" },
-  { name: "Кастом", href: "/custom" },
-  { name: "F.A.Q.", href: "/faq" },
-];
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <ThemeProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <ThemeProvider>
         <Router>
           <div className="flex flex-col min-h-screen overflow-x-hidden">
             <Header
-              navigation={navigation}
               mobileMenuOpen={mobileMenuOpen}
               setMobileMenuOpen={setMobileMenuOpen}
             />
@@ -71,7 +62,7 @@ export default function App() {
         </Router>
         <Alert />
         <AgeAlert />
-      </AuthProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }

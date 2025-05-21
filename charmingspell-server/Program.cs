@@ -15,7 +15,8 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("http://localhost:5173")
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
@@ -58,9 +59,9 @@ builder.Services.AddAuthentication(options =>
 var app = builder.Build();
 
 app.UseHttpsRedirection();
+app.UseCors("AllowReactApp");
 app.UseAuthorization();
 app.UseAuthentication();
-app.UseCors("AllowReactApp");
 app.MapControllers();
 
 app.Run();

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
+import {useAuth} from "../AuthContext.jsx";
 
 const products = [
   {
@@ -126,6 +127,13 @@ const products = [
 
 export default function ShopSection() {
   const { isDarkMode } = useContext(ThemeContext);
+  const { user, loading } = useAuth();
+
+  if (loading) return <div>Загрузка...</div>;
+
+  if (!user || user.role !== "Admin") {
+    return <div>Доступ запрещён</div>;
+  }
 
   return (
     <div

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15
@@ -16,42 +14,42 @@ services:
       - keycloak_network
 
   keycloak:
-  image: quay.io/keycloak/keycloak:latest
-  container_name: keycloak_server
-  environment:
-    KC_DB: postgres
-    KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
-    KC_DB_USERNAME: keycloak_user
-    KC_DB_PASSWORD: keycloak_password
-    KEYCLOAK_ADMIN: admin
-    KEYCLOAK_ADMIN_PASSWORD: admin
-    KC_SMTP_SERVER: postfix
-    KC_SMTP_PORT: 25
-    KC_SMTP_FROM: particular0010abyss@gmail.com
-    KC_SMTP_USER: particular0010abyss@gmail.com
-    KC_SMTP_PASSWORD: F3T1W&imkatyano_F0R3V3R
-  command: start-dev
-  depends_on:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak_server
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak_user
+      KC_DB_PASSWORD: keycloak_password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_SMTP_SERVER: postfix
+      KC_SMTP_PORT: 25
+      KC_SMTP_FROM: particular0010abyss@gmail.com
+      KC_SMTP_USER: particular0010abyss@gmail.com
+      KC_SMTP_PASSWORD: F3T1W&imkatyano_F0R3V3R
+    command: start-dev
+    depends_on:
     - postgres
-  ports:
+    ports:
     - "8080:8080"
-  networks:
+    networks:
     - keycloak_network
 
   postfix:
-  image: mlan/postfix:latest
-  container_name: postfix_server
-  environment:
-    MAIL_DOMAIN: gmail.com
-    RELAY_HOST: smtp.gmail.com
-    RELAY_PORT: 587
-    RELAY_USER: particular0010abyss@gmail.com
-    RELAY_PASSWORD: hgqo erqw fnat ypcx
-    OVERRIDE_HOSTNAME: smtp.gmail.com
-  ports:
-    - "25:25"
-  networks:
-    - keycloak_network
+    image: mlan/postfix:latest
+    container_name: postfix_server
+    environment:
+      MAIL_DOMAIN: gmail.com
+      RELAY_HOST: smtp.gmail.com
+      RELAY_PORT: 587
+      RELAY_USER: particular0010abyss@gmail.com
+      RELAY_PASSWORD: hgqo erqw fnat ypcx
+      OVERRIDE_HOSTNAME: smtp.gmail.com
+    ports:
+      - "25:25"
+    networks:
+      - keycloak_network
 
 volumes:
   postgres_data:

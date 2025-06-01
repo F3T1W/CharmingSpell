@@ -20,7 +20,7 @@ import { ThemeProvider } from "./components/ThemeContext";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import UserAgreementPage from "./pages/UserAgreementPage";
 import PublicOfferPage from "./pages/PublicOfferPage";
-import VerifySection from "./components/VerifySection/VerifySection.jsx";
+// import VerifySection from "./components/VerifySection/VerifySection.jsx";
 import { AuthProvider } from "./components/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
@@ -54,7 +54,7 @@ export default function App() {
                 <Route path="/privacyPolicy" element={<PrivacyPolicyPage />} />
                 <Route path="/userAgreement" element={<UserAgreementPage />} />
                 <Route path="/publicOffer" element={<PublicOfferPage />} />
-                <Route path="/verify/:token" element={<VerifySection />} />
+                {/*<Route path="/verify/:token" element={<VerifySection />} />*/}
               </Routes>
             </main>
             <Footer navigation={navigation} />

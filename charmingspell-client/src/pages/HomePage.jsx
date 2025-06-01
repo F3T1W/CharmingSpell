@@ -14,7 +14,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiClient.get('/api/test'); // Correct endpoint
+        const response = await apiClient.get('/api/test');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

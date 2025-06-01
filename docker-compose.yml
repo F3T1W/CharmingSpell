@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:15
+    image: postgres:latest
     container_name: keycloak_postgres
     environment:
       POSTGRES_DB: keycloak
@@ -24,17 +24,17 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
       KC_SMTP_SERVER: postfix
-      KC_SMTP_PORT: 25
+      KC_SMTP_PORT: 9999
       KC_SMTP_FROM: particular0010abyss@gmail.com
       KC_SMTP_USER: particular0010abyss@gmail.com
       KC_SMTP_PASSWORD: F3T1W&imkatyano_F0R3V3R
     command: start-dev
     depends_on:
-    - postgres
+      - postgres
     ports:
-    - "8080:8080"
+      - "8080:8080"
     networks:
-    - keycloak_network
+      - keycloak_network
 
   postfix:
     image: mlan/postfix:latest
@@ -47,9 +47,18 @@ services:
       RELAY_PASSWORD: hgqo erqw fnat ypcx
       OVERRIDE_HOSTNAME: smtp.gmail.com
     ports:
-      - "25:25"
+      - "9997:25"
     networks:
       - keycloak_network
+        
+  charmingspell-server:
+    image: charmingspell-server
+    build:
+      context: ./charmingspell-server
+      dockerfile: Dockerfile
+    container_name: aspnet
+    ports:
+      - "5001:8080"
 
 volumes:
   postgres_data:
